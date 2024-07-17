@@ -1,0 +1,68 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-engine-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: app-engine
+  template:
+    metadata:
+      labels:
+        app: app-engine
+    spec:
+      containers:
+        - name: app-engine
+          image: shedzo/app-engine
+          env:
+            - name: NATS_URL
+              value: 'http://nats-srv:4222'
+            - name: HOST_URL
+              value: 'https://95bf-41-47-52-77.ngrok-free.app'
+            - name: JENKINS_URL
+              value: 'http://jenkins-srv:8080/'
+            - name: NATS_CLUSTER_ID
+              value: ticketing
+            - name: NATS_CLIENT_ID
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
+            - name: JWT_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: jwt-secret
+                  key: JWT_KEY
+            - name: JENKINS_API_TOKEN
+              value: '115c180b56316968efd140a6551b64d3e4'
+            - name: JENKINS_USER
+              valueFrom:
+                secretKeyRef:
+                  name: jenkins-user
+                  key: JENKINS_USER
+            - name: DOCKER_HOST
+              value: 'unix:///var/run/docker.sock'
+          securityContext:
+            privileged: true
+          volumeMounts:
+            - name: docker-socket
+              mountPath: /var/run/docker.sock
+      volumes:
+        - name: docker-socket
+          hostPath:
+            path: /var/run/docker.sock
+            type: Socket
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: app-engine-srv
+spec:
+  type: ClusterIP
+  selector:
+    app: app-engine
+  ports:
+    - name: app-engine-srv
+      protocol: TCP
+      port: 4000
+      targetPort: 4000
