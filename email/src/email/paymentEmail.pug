@@ -1,0 +1,8 @@
+extends baseEmail
+
+block content
+    p Hi #{firstName},
+    p Thank you for your payment for #{plan} with price : #{price},
+    p I can confirm that we received this on #{Date.now()}. I have attached a copy of your receipt to this email
+    p If you need any help, please don't hesitate to contact me!
+    p - Amr Mahmoud Said
