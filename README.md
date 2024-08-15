@@ -1,7 +1,3 @@
-<p align="center">
-  <img src="/image/logo/logo-removebg-preview (1).png" height="160" width="350"></a>
-</p>
-
 
 #### CLOUD WAVE is a gradation project which aims to build a [Platform as a Service](https://cloud.google.com/learn/what-is-paas)  that simplifies the development, deployment, and management of various types of applications. Cloud Wave allows developers to focus on innovation while we handle the infrastructure and operational complexities.
 #### Objectives Achieved:
