@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="/image/logo/logo-removebg-preview (1).png" height="160" width="350"></a>
+</p>
+
 
 #### CLOUD WAVE is a gradation project which aims to build a [Platform as a Service](https://cloud.google.com/learn/what-is-paas)  that simplifies the development, deployment, and management of various types of applications. Cloud Wave allows developers to focus on innovation while we handle the infrastructure and operational complexities.
 #### Objectives Achieved:
@@ -504,3 +508,4 @@ CLOUD-WAVE-PAAS--GRADUATION-PROJECT
 - [Docker](https://www.docker.com/) for containerization
 - [kubernetes](https://kubernetes.io/) for orchestration
 - [Jest](https://jestjs.io/) for testing 
+### You can view all the services endpoints  docs from [postman workspace](https://universal-escape-982451.postman.co/workspace/cloud-wave~4884c53e-9afc-4657-9cd3-2e36a113065d/collection/23605089-744685a1-211f-4ece-9cdc-5fc3ccad3430?action=share&creator=23605089)
